@@ -1,0 +1,99 @@
+﻿<Controls:MetroWindow x:Class="FirmaPdfWpf.FirmaDesdeCarpeta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:FirmaPdfWpf"
+        mc:Ignorable="d"
+         TitleCaps="False"      
+                      Icon="signatureIcon.png"
+        Title="Firmar Pdfs desde Carpeta del Usuario" Height="600" Width="1024" Loaded="FrmFirmadesdeCarpeta_Load" MinWidth="1024" MinHeight="600" WindowStartupLocation="CenterScreen" IsMaxRestoreButtonEnabled="False" IsCloseButtonEnabled="False">
+
+    <Controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Grid Width="{TemplateBinding Width}"
+                 Height="{TemplateBinding Height}"
+                 Margin="4"
+                 Background="Transparent"
+                 RenderOptions.EdgeMode="Aliased"
+                 RenderOptions.BitmapScalingMode="HighQuality">
+                <Image Source="bseLogo.png"></Image>
+            </Grid>
+        </DataTemplate>
+    </Controls:MetroWindow.IconTemplate>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel HorizontalAlignment="Stretch"  LastChildFill="true"   VerticalAlignment="Stretch" >
+        <StackPanel Height="60" VerticalAlignment="Top" DockPanel.Dock="Top" >
+            <TextBlock x:Name="TxtCarpetaOrigen" TextWrapping="Wrap" FontSize="13" Padding="12,5,0,0"    Height="30" Background="#FFF9F7F7">
+                <Run Text="Carpeta Origen: " FontWeight="Bold"  />
+                <Run Text="{Binding CarpetaOrigen}"></Run>
+            </TextBlock>
+
+            <TextBlock x:Name="TxtCarpetaDestino" TextWrapping="Wrap" FontSize="13" Padding="12,5,0,0" Height="30" Background="#FFF9F7F7" Margin="0" LineHeight="30">
+                <Run Text="Carpeta Destino: " FontWeight="Bold" />
+                <Run Text="{Binding CarpetaDestino}"  ></Run>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Width="200" HorizontalAlignment="Left" DockPanel.Dock="Left" Background="#FFF9F7F7" >
+            <Button x:Name="BtnFirmar"  Height="40" Margin="10,5" Controls:ButtonHelper.PreserveTextCase="True" Click="BtnFirmar_Click" Style="{StaticResource AccentedSquareButtonStyle}" >
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome Kind="SignatureSolid" Margin="0,0,8,0" />
+                    <TextBlock Text="Firmar" />
+                    
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnExportar" IsEnabled="False" Height="40" Margin="10,5" Controls:ButtonHelper.PreserveTextCase="True" Click="BtnExportar_Click" Style="{StaticResource AccentedSquareButtonStyle}" >
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome Kind="FileExcelSolid" Margin="0,0,8,0" />
+                    <TextBlock Text="Exportar Resultado" />
+                    
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnSalir"  Height="40" Margin="10,5" Controls:ButtonHelper.PreserveTextCase="True" Style="{StaticResource AccentedSquareButtonStyle}" Click="BtnSalir_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome Kind="WindowCloseSolid" Margin="0,0,8,0" />
+                    <TextBlock Text="Salir" />
+                    
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+        <DataGrid x:Name="GridResultado"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5"   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                  AutoGenerateColumns="False" IsReadOnly="True" AlternationCount="2"  ItemsSource="{Binding ArchivosParaFirmar}">
+            <DataGrid.Columns>
+                <DataGridTextColumn     Binding="{Binding Lote}" ClipboardContentBinding="{x:Null}" Width="150" Header="Lote" ElementStyle="{StaticResource WrapText}"/>
+                <DataGridTextColumn Binding="{Binding File.Name}" ClipboardContentBinding="{x:Null}" Width="200" Header="Archivo" ElementStyle="{StaticResource WrapText}"/>
+                <DataGridTextColumn Binding="{Binding Estado.Nombre}" ClipboardContentBinding="{x:Null}" Header="Estado"/>
+                <DataGridTextColumn Binding="{Binding Estado.Descripcion}" ClipboardContentBinding="{x:Null}" Width="*"  Header="Mensaje" ElementStyle="{StaticResource WrapText}" />
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="BorderThickness" Value="0 0 0 1"/>
+                    <Setter Property="BorderBrush" Value="WhiteSmoke" />
+                    <Style.Triggers>
+                        <!--first alteraniting colour-->
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="AliceBlue"></Setter>
+                            <Setter Property="Foreground" Value="Black"></Setter>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Estado.ColorDefined}" Value="True">
+                            <Setter Property="Background" Value="{Binding Estado.BackgroundColor}"></Setter>
+                            <Setter Property="Foreground" Value="{Binding Estado.ForegroundColor}"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            
+        </DataGrid>
+    </DockPanel>
+
+</Controls:MetroWindow>

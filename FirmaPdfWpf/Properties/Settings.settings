@@ -1,0 +1,23 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FirmaPdfWpf.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="IsaHubHostUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">wss://127.0.0.1</Value>
+    </Setting>
+    <Setting Name="Puertos" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;4321&lt;/string&gt;
+  &lt;string&gt;4322&lt;/string&gt;
+  &lt;string&gt;4323&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="CarpetaOrigen" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\bse20305\firmaPdf\origen</Value>
+    </Setting>
+    <Setting Name="CarpetaDestino" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\bse20305\firmaPdf\destino</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
