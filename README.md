@@ -27,7 +27,7 @@ La solución consta de dos proyectos:
   particulares del usuario para el que se desarrolló la solución.
 
 ### Signer
-.Net Standard 2.0
+> .Net Standard 2.0
 
 Originalmente para la firma de PDFs se iba a utilizar únicamente un producto disponible en todos los pcs clientes llamado IsCertHub
 que es utilizado para firmar documentos desde un navegador (utilizando un plugin). Expone su funcionalidad a través de un websocket que recibe un archivo
@@ -122,7 +122,7 @@ Un ejemplo de manejo del evento (PdfSigner_SignedFileEvent) sería el siguiente:
 
 ```
  ### FirmaPwdWpf
-Framework 4.7.2 o superior
+> Framework 4.7.2 o superior
 
 Por ser la primera vez usando Wpf, seguramente se detectan algunos defectos en el uso del patrón MVVM y de la tecnología en gral.
 Aclarado esto, pasemos a los requerimientos básicos de la aplicación:
