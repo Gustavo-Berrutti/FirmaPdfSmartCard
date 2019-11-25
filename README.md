@@ -188,7 +188,7 @@ que además incluye las opciones de configuración de la biblioteca Signer.
   *  **IsaHubPorts:** Lista de puertos en las que puede estar levantado el websocket. La implementación chequea la disponibilidad del servicio en un determinado puerto siguiendo en orden ingresado.
 * PkcsInterop
   * **PkcsInteropSigner.dllPath:** el camino a la biblioteca del Card Reader específico que se utilizará. 
-  * ** PdfSigner.Impl** La implementación que se usará para la firma. Valores válidos al momento de la escritura: IsCert y PkcsInterop.
+  * **PdfSigner.Impl** La implementación que se usará para la firma. Valores válidos al momento de la escritura: IsCert y PkcsInterop.
 * FirmaPdfWpf
   * **CarpetaOrigen:** carpeta base para la lectura de archivos (sin el nombre de usuario).
   * **CarpetaDestino:** donde se guardarán los archivos firmados (común a todos los usuarios).
