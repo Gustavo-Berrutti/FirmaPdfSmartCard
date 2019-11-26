@@ -121,7 +121,7 @@ Un ejemplo de manejo del evento (PdfSigner_SignedFileEvent) sería el siguiente:
 }
 
 ```
- ### FirmaPwdWpf
+ ### FirmaPdfWpf
 > Framework 4.7.2 o superior
 
 Por ser la primera vez usando Wpf, seguramente se detectan algunos defectos en el uso del patrón MVVM y de la tecnología en gral.
